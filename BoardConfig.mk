@@ -78,14 +78,15 @@ BOARD_MOVE_RECOVERY_RESOURCES_TO_VENDOR_BOOT := false
 BOARD_INCLUDE_RECOVERY_RAMDISK_IN_VENDOR_BOOT := false
 
 # Partitions
-BOARD_BOOTIMAGE_PARTITION_SIZE := 104857600
+BOARD_BOOTIMAGE_PARTITION_SIZE := 100663296
 BOARD_RECOVERYIMAGE_PARTITION_SIZE := 104857600
-BOARD_VENDORBOOTIMAGE_PARTITION_SIZE := 104857600
+BOARD_VENDORBOOTIMAGE_PARTITION_SIZE := 100663296
+BOARD_DTBOIMG_PARTITION_SIZE := 25165824
 
-BOARD_SUPER_PARTITION_SIZE := 9126805504
-BOARD_SUPER_PARTITION_GROUPS := xiaomi_dynamic_partitions
-BOARD_XIAOMI_DYNAMIC_PARTITIONS_SIZE := 9122611200
-BOARD_XIAOMI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm system_dlkm odm mi_ext
+BOARD_SUPER_PARTITION_SIZE := 11811160064
+BOARD_SUPER_PARTITION_GROUPS := qti_dynamic_partitions
+BOARD_QTI_DYNAMIC_PARTITIONS_SIZE := 11800674304
+BOARD_QTI_DYNAMIC_PARTITIONS_PARTITION_LIST := system system_ext product vendor vendor_dlkm system_dlkm odm mi_ext
 
 BOARD_HAS_LARGE_FILESYSTEM := true
 BOARD_SYSTEMIMAGE_PARTITION_TYPE := ext4
@@ -113,6 +114,7 @@ AERA_INCLUDE_FBE_METADATA_DECRYPT := $(FIXED_DECRYPT)
 BOARD_USES_QCOM_FBE_DECRYPTION := $(FIXED_DECRYPT)
 AERA_USE_FSCRYPT_POLICY := 2
 BOARD_USES_METADATA_PARTITION := true
+AERA_DEFAULT_KEYMASTER_VERSION := 4.0
 
 # Security patch / anti-rollback
 PLATFORM_VERSION := 99.87.36
@@ -149,6 +151,7 @@ AERA_EXCLUDE_DEFAULT_USB_INIT := true
 AERA_INCLUDE_NTFS_3G := true
 AERA_USE_TOOLBOX := true
 AERA_INPUT_BLACKLIST := "hbtp_vm"
+AERA_LOAD_VENDOR_MODULES := panel_event_notifier.ko xiaomi_touch.ko gh_irq_lend.ko gh_mem_notifier.ko focaltech_touch.ko mca_sysfs.ko mca_event.ko mca_log.ko mca_qcom_panel.ko qmi_helpers.ko wlan_firmware_service.ko cnss_plat_ipc_qmi_svc.ko cnss_prealloc.ko smem-mailbox.ko cnss_utils.ko qcom_ramdump.ko pcie-pdc.ko qcom_smd.ko qcom_glink.ko qcom_glink_smem.ko rproc_qcom_common.ko pci-msm-drv.ko mhi.ko cnss2.ko cnss_nl.ko repeater.ko redriver.ko pdr_interface.ko qti_pmic_glink.ko ucsi_qti_glink.ko wcd_usbss_i2c.ko dwc3-msm.ko usb_f_gsi.ko rmnet_mem.ko qcom_va_minidump.ko gsim.ko ipam.ko cfg80211.ko qca_cld3_peach_v2.ko qti_battery_debug.ko
 AERA_BRIGHTNESS_PATH := "/sys/class/backlight/panel0-backlight/brightness"
 AERA_MAX_BRIGHTNESS := 2047
 AERA_EXTRA_LANGUAGES := true
