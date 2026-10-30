@@ -29,3 +29,8 @@ PRODUCT_SOONG_NAMESPACES += $(DEVICE_PATH)
 PRODUCT_PACKAGES += \
     lpmake \
     lpunpack
+
+# ─── Audio (plugin-safe AGM bridge used by the media browser) ────────────────
+PRODUCT_PACKAGES += \
+    aera-audio-bridge \
+    aera-audio-service
