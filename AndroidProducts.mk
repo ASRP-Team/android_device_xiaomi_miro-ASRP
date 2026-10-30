@@ -1,12 +1,10 @@
 #
-# Copyright (C) 2026 The Android Open Source Project
-#
+# Copyright (C) 2026 AERA Recovery Project contributors
 # SPDX-License-Identifier: Apache-2.0
 #
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/twrp_miro.mk
+PRODUCT_MAKEFILES := \
+    $(LOCAL_DIR)/twrp_miro.mk
 
 COMMON_LUNCH_CHOICES := \
-    twrp_miro-user \
-    twrp_miro-userdebug \
-    twrp_miro-eng
+    twrp_miro-bp2a-eng

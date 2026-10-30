@@ -1,51 +1,44 @@
-#
-# Copyright (C) 2026 The Android Open Source Project
-#
-# SPDX-License-Identifier: Apache-2.0
-#
+# Copyright (C) 2026 AERA Recovery Project contributors
+# SPDX-License-Identifier: GPL-3.0-or-later
 
-# screen settings
+DEVICE_PATH := device/xiaomi/miro
+
+# Project identity and adaptive UI metrics for the 1440x3200 panel.
+# AERA_SCREEN_H is expressed in the 1080-wide theme reference space, while the
+# status-bar values use AERA UI's 1440-wide logical coordinate space.
 AERA_MAINTAINER := ASRP Team
-AERA_UI_ADAPTIVE_RESOLUTION := true
-AERA_SCREEN_H := 3200
-AERA_STATUS_H := 150
+AERA_SCREEN_H := 2400
+AERA_STATUS_H := 165
+AERA_STATUS_INDENT_LEFT := 56
+AERA_STATUS_INDENT_RIGHT := 56
 AERA_HIDE_NOTCH := 1
 AERA_CLOCK_POS := 1
-AERA_STATUS_INDENT_LEFT := 64
-AERA_STATUS_INDENT_RIGHT := 56
 AERA_ALLOW_DISABLE_NAVBAR := 0
+AERA_OPTIONS_LIST_NUM := 6
+
+# Flashlight
 AERA_USE_GREEN_LED := 0
 
-# other stuff
-AERA_QUICK_BACKUP_LIST := /boot;/data;
-AERA_ENABLE_LPTOOLS := 1
-AERA_NO_TREBLE_COMPATIBILITY_CHECK := 1
+# Partition and format handling
 AERA_DYNAMIC_FULL_SIZE := 11811160064
-
-# number of list options before scrollbar creation
-AERA_OPTIONS_LIST_NUM := 11
-
-# A/B with recovery partition
-AERA_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
-
-# ----- data format stuff -----
-# ensure that /sdcard is bind-unmounted before f2fs data repair or format
-AERA_UNBIND_SDCARD_F2FS := 1
-
-# automatically wipe /metadata after data format
-AERA_WIPE_METADATA_AFTER_DATAFORMAT := 1
-
-# avoid MTP issues after data format
-AERA_BIND_MOUNT_SDCARD_ON_FORMAT := 1
-
-# Set to 1 to attempt to unmount the SD cards before rebooting
-AERA_UNMOUNT_SDCARDS_BEFORE_REBOOT := 1
-
-# don't spam the console with loop errors
-AERA_LOOP_DEVICE_ERRORS_TO_LOG := 1
-
-# lz4 compression
-AERA_USE_LZ4_COMPRESSION := 1
-
-# build all the partition tools
+AERA_DISPLAY_FORMAT_FILESYSTEMS_DEBUG_INFO := 1
 AERA_ENABLE_ALL_PARTITION_TOOLS := 1
+AERA_ENABLE_LPTOOLS := 1
+AERA_USE_AIDL_BOOT_CONTROL := 1
+AERA_USE_DMCTL := 1
+AERA_FORCE_DATA_FORMAT_F2FS := 1
+AERA_FORCE_CASEFOLDING := 1
+AERA_UNBIND_SDCARD_F2FS := 1
+AERA_BIND_MOUNT_SDCARD_ON_FORMAT := 1
+AERA_UNMOUNT_SDCARDS_BEFORE_REBOOT := 1
+AERA_WIPE_METADATA_AFTER_DATAFORMAT := 1
+AERA_WORKAROUND_BACKUP_BUG := 1
+
+# Kernel and recovery behavior
+AERA_FORCE_PREBUILT_KERNEL := 1
+AERA_AB_DEVICE_WITH_RECOVERY_PARTITION := 1
+AERA_NO_RELOAD_AFTER_DECRYPTION := 1
+AERA_NO_TREBLE_COMPATIBILITY_CHECK := 1
+AERA_USE_LZ4_COMPRESSION := 1
+AERA_ENABLE_WLAN := 1
+AERA_ENABLE_FRP_WIPE := 1
