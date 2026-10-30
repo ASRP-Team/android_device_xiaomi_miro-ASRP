@@ -81,13 +81,19 @@ sources, A/B + dedicated recovery layout.
 
 Known gaps:
 
-- `recovery/root` does not yet carry the full vendor HAL library set that
-  AERA ships for myron (display mapper, secureprocessor, vibrator, ODM
-  services, `init.recovery.qcom.rc`, Wi-Fi firmware).
-- No `security/releasekey.x509.pem`; the image is signed with AOSP test keys.
+- `recovery/root` carries 206 vendor libraries/binaries matched from the
+  stock images plus the QTI KeyMint and display-allocator services. Myron-only
+  files that do not exist on miro (its haptics, provisioning and
+  `bytes` modules, `qti_battery_charger.ko`) are intentionally omitted,
+  as is `vendor/firmware_mnt` (modem firmware, not needed by recovery).
+- `security/releasekey.x509.pem` is the public key used for
+  `PRODUCT_EXTRA_RECOVERY_KEYS`; the image signature still comes from the
+  configured AVB test key.
 - No `transplanting_vbmeta.py`; stock vbmeta is replaced with the test key
   image.
 - Wi-Fi and USB modules are still loaded together at boot instead of split
   into `AERA_POST_DECRYPT_MODULES`.
+- `init.recovery.wifi.rc` uses the peach CNSS sysfs node; confirm the path
+  on hardware.
 - `AERA_SCREEN_H` / `AERA_STATUS_H` are derived from AERA's 1080-wide
   reference space (2400 / 165) and have not been verified on hardware.

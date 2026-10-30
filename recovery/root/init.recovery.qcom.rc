@@ -1,0 +1,25 @@
+# init.recovery.qcom.rc — Xiaomi miro / POCO F7 Ultra
+# ASRP 16 / SM8750 / sun / QTI KeyMint (keymaster 4.0) / Virtual A/B
+# SPDX-License-Identifier: Apache-2.0
+
+import /init.recovery.hlthchrg.rc
+import /init.recovery.usb.rc
+import /init.recovery.wifi.rc
+
+# The miro vendor stack relies on snapalloc-backed gralloc buffers.
+on early-init
+    setprop vendor.gralloc.enable_snapalloc true
+
+service vendor.qti.hardware.display.allocator-service /vendor/bin/hw/vendor.qti.hardware.display.allocator-service
+    class hal
+    user root
+    group root graphics
+    capabilities SYS_NICE
+    seclabel u:r:recovery:s0
+
+# QTI KeyMint (v3 HAL, keymaster 4.0 compatible interface).
+service vendor.keymint-service-qti /vendor/bin/hw/android.hardware.security.keymint-service-qti
+    class hal
+    user root
+    group system
+    seclabel u:r:recovery:s0

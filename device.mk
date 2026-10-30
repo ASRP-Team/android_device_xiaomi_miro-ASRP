@@ -34,3 +34,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     aera-audio-bridge \
     aera-audio-service
+
+# ─── Release key ──────────────────────────────────────────────────────────────
+PRODUCT_EXTRA_RECOVERY_KEYS += \
+    $(DEVICE_PATH)/security/releasekey
